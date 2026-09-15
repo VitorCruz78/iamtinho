@@ -8,7 +8,7 @@ export function Projects() {
       id="projetos"
       kicker="Projetos"
       title="Produtos que construí"
-      intro="Aplicações completas, com backend, banco de dados e operação real — não exercícios de portfólio."
+      intro="A maior parte do que construí é interna: sistemas das empresas em que trabalhei e trabalho, que não são públicos. Por fora, desenvolvo produtos próprios como os abaixo — aplicações completas, com backend, banco de dados e operação real."
     >
       <div className="space-y-8">
         {projects.map((project) => (

@@ -27,8 +27,6 @@ export function Hero() {
               Entrar em contato
             </ButtonLink>
           </div>
-
-          <p className="mt-9 text-sm text-muted">{profile.availability}</p>
         </div>
 
         <div className="order-1 lg:order-2">

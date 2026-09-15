@@ -39,7 +39,7 @@ const personSchema = {
     "@type": "CreativeWork",
     name: project.name,
     description: project.summary,
-    url: project.links[0].href,
+    ...(project.links[0] ? { url: project.links[0].href } : {}),
   })),
 };
 

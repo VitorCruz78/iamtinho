@@ -14,9 +14,11 @@ export function ContactCta() {
           id="contato-title"
           className="text-3xl font-semibold tracking-tight md:text-4xl"
         >
-          Tem um produto para construir?
+          Vamos conversar.
         </h2>
-        <p className="mt-3 text-lg text-muted">Vamos conversar.</p>
+        <p className="mt-3 text-lg text-muted">
+          Para contato profissional, o e-mail é o caminho mais direto.
+        </p>
 
         <div className="mt-9 flex flex-wrap gap-3">
           <ButtonLink href={`mailto:${profile.email}`}>

@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { ArrowIcon, GithubIcon } from "@/components/icons";
+import { ArrowIcon, WhatsappIcon } from "@/components/icons";
 import type { Project } from "@/content/site";
 
 export function ProjectCard({ project }: { project: Project }) {
@@ -97,25 +97,27 @@ export function ProjectCard({ project }: { project: Project }) {
           ))}
         </ul>
 
-        <div className="mt-7 flex flex-wrap gap-5 border-t border-line pt-6">
-          {project.links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              target="_blank"
-              rel="noreferrer noopener"
-              aria-label={`${link.label} — ${project.name}`}
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-accent transition-opacity duration-200 hover:opacity-75"
-            >
-              {link.kind === "github" ? (
-                <GithubIcon className="h-4 w-4" />
-              ) : (
-                <ArrowIcon className="h-4 w-4" />
-              )}
-              {link.label}
-            </a>
-          ))}
-        </div>
+        {project.links.length > 0 ? (
+          <div className="mt-7 flex flex-wrap gap-5 border-t border-line pt-6">
+            {project.links.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noreferrer noopener"
+                aria-label={`${link.label} — ${project.name}`}
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-accent transition-opacity duration-200 hover:opacity-75"
+              >
+                {link.kind === "whatsapp" ? (
+                  <WhatsappIcon className="h-4 w-4" />
+                ) : (
+                  <ArrowIcon className="h-4 w-4" />
+                )}
+                {link.label}
+              </a>
+            ))}
+          </div>
+        ) : null}
       </div>
     </article>
   );

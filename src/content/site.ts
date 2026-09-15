@@ -4,7 +4,6 @@ export const profile = {
   role: "Full Stack Developer",
   tagline:
     "Desenvolvedor Full Stack focado na construção de aplicações web modernas, APIs e produtos escaláveis.",
-  availability: "Based in Brazil · Disponível para oportunidades remotas",
   email: "vitorcruzcontato78@gmail.com",
   github: "https://github.com/VitorCruz78",
   githubHandle: "VitorCruz78",
@@ -93,7 +92,7 @@ export type Project = {
   build: string;
   tech: readonly string[];
   modules?: readonly { label: string; done: boolean }[];
-  links: readonly { href: string; label: string; kind: "site" | "github" }[];
+  links: readonly { href: string; label: string; kind: "site" | "whatsapp" }[];
   images?: readonly {
     src: string;
     alt: string;
@@ -111,7 +110,7 @@ export const projects: readonly Project[] = [
     problem:
       "Encontrar uma boa oferta exige garimpar marketplaces, grupos e sites o dia inteiro. O KompreAki reúne ofertas, guias de compra e análises de produto em um só lugar, com curadoria e distribuição própria de conteúdo.",
     build:
-      "Construí a plataforma completa: catálogo de ofertas, blog, páginas de nicho, área administrativa e uma camada de automação que roda em segundo plano — workers em Node para coleta e cópia de promoções, rotinas agendadas e integração com marketplace. Inclui geração de conteúdo com OpenAI, autenticação, SEO técnico e testes automatizados.",
+      "Construí a plataforma completa: catálogo de ofertas, blog, páginas de nicho, área administrativa e uma camada de automação que roda em segundo plano — workers em Node para coleta e cópia de promoções, rotinas agendadas e integração com marketplace. As promoções selecionadas são enviadas automaticamente para o grupo da comunidade no WhatsApp. Inclui geração de conteúdo com OpenAI, autenticação, SEO técnico e testes automatizados.",
     tech: [
       "Next.js",
       "TypeScript",
@@ -119,6 +118,7 @@ export const projects: readonly Project[] = [
       "Prisma",
       "PostgreSQL",
       "OpenAI",
+      "WhatsApp (Z-API)",
       "Puppeteer",
       "Vitest",
       "Vercel",
@@ -130,9 +130,9 @@ export const projects: readonly Project[] = [
         kind: "site",
       },
       {
-        href: "https://github.com/VitorCruz78/kompreaki",
-        label: "Código",
-        kind: "github",
+        href: "https://chat.whatsapp.com/B6UbH1FdldVE2CfaUhOq8P",
+        label: "Grupo no WhatsApp",
+        kind: "whatsapp",
       },
     ],
     images: [
@@ -178,24 +178,18 @@ export const projects: readonly Project[] = [
       "Zod",
       "Vitest",
     ],
-    links: [
-      {
-        href: "https://github.com/VitorCruz78/IDE-APP",
-        label: "Código",
-        kind: "github",
-      },
-    ],
+    links: [],
   },
 ];
 
 export const education = {
   title: "Análise e Desenvolvimento de Sistemas",
   detail: "EAD · em andamento",
-  note: "Minha base técnica não vem só da faculdade: ela se apoia em estudo contínuo, prática profissional e na construção de produtos reais que precisam funcionar em produção.",
+  note: "Cursei dois anos de Engenharia de Software antes de migrar para ADS no formato EAD. Minha base técnica não vem só da faculdade: ela se apoia em estudo contínuo, prática profissional e na construção de produtos reais.",
 } as const;
 
 export const english = {
-  title: "English — A2/B1",
+  title: "English — B1",
   detail: "Em desenvolvimento",
   note: "Estudo com foco em comunicação técnica e no objetivo de atuar com empresas internacionais.",
 } as const;
