@@ -12,6 +12,9 @@ import {
   stackGroups,
 } from "@/content/site";
 
+// Regenera a página periodicamente para o tempo de experiência não congelar no build.
+export const revalidate = 86400;
+
 const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",

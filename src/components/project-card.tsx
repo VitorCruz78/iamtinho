@@ -64,28 +64,15 @@ export function ProjectCard({ project }: { project: Project }) {
             </h4>
             <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-3">
               {project.modules.map((module) => (
-                <li
-                  key={module.label}
-                  className="flex items-center gap-2 text-sm"
-                >
+                <li key={module} className="flex items-center gap-2 text-sm">
                   <span
                     aria-hidden="true"
-                    className={`h-1.5 w-1.5 rounded-full ${
-                      module.done ? "bg-accent" : "border border-muted"
-                    }`}
+                    className="h-1.5 w-1.5 rounded-full bg-accent"
                   />
-                  <span className={module.done ? "" : "text-muted"}>
-                    {module.label}
-                  </span>
-                  <span className="sr-only">
-                    {module.done ? "entregue" : "em implementação"}
-                  </span>
+                  {module}
                 </li>
               ))}
             </ul>
-            <p className="mt-4 text-xs text-muted">
-              Preenchido: entregue · Contorno: modelado e em implementação
-            </p>
           </div>
         ) : null}
 

@@ -10,6 +10,23 @@ export const profile = {
   siteUrl: "https://iamtinho.dev",
 } as const;
 
+const careerStart = new Date(2023, 1);
+
+export function experienceLabel(now = new Date()) {
+  const months =
+    (now.getFullYear() - careerStart.getFullYear()) * 12 +
+    (now.getMonth() - careerStart.getMonth());
+
+  return `mais de ${Math.floor(months / 12)} anos`;
+}
+
+export function heroIntro() {
+  return [
+    `Desenvolvedor Full Stack há ${experienceLabel()}, construindo aplicações web modernas, APIs e produtos que rodam em produção.`,
+    "Trabalho o sistema inteiro — da interface à modelagem de dados — com TypeScript, React, Next.js, Node.js e PostgreSQL.",
+  ];
+}
+
 export const navLinks = [
   { href: "#sobre", label: "Sobre" },
   { href: "#stack", label: "Stack" },
@@ -17,11 +34,13 @@ export const navLinks = [
   { href: "#contato", label: "Contato" },
 ] as const;
 
-export const about = [
-  "Trabalho há 4 anos construindo aplicações web full stack e colocando produtos em produção — do frontend à camada de dados.",
-  "Atuo tanto na interface quanto no backend, mas o que orienta meu trabalho é entender o sistema inteiro: como o dado é modelado, onde as regras de negócio ficam e o que acontece com a aplicação depois que ela vai ao ar.",
-  "Meu foco hoje está em TypeScript, React, Next.js, Node.js e PostgreSQL, com atenção crescente a arquitetura e boas práticas de engenharia.",
-] as const;
+export function about() {
+  return [
+    `Trabalho há ${experienceLabel()} construindo aplicações web full stack e colocando produtos em produção — do frontend à camada de dados.`,
+    "Atuo tanto na interface quanto no backend, mas o que orienta meu trabalho é entender o sistema inteiro: como o dado é modelado, onde as regras de negócio ficam e o que acontece com a aplicação depois que ela vai ao ar.",
+    "Meu foco hoje está em TypeScript, React, Next.js, Node.js e PostgreSQL, com atenção crescente a arquitetura e boas práticas de engenharia.",
+  ];
+}
 
 export const stackGroups = [
   {
@@ -91,7 +110,7 @@ export type Project = {
   problem: string;
   build: string;
   tech: readonly string[];
-  modules?: readonly { label: string; done: boolean }[];
+  modules?: readonly string[];
   links: readonly { href: string; label: string; kind: "site" | "whatsapp" }[];
   images?: readonly {
     src: string;
@@ -154,19 +173,19 @@ export const projects: readonly Project[] = [
   },
   {
     name: "IDE APP",
-    status: "Em desenvolvimento",
+    status: "Em comercialização",
     summary: "Sistema de gestão e operação para igrejas.",
     problem:
       "A operação de uma igreja costuma viver espalhada: membros em planilhas, escalas em grupos de mensagem e financeiro em outro lugar. O IDE APP trata membro, função, culto, escala e contribuição como conceitos de domínio com regras próprias, em uma estrutura multi-tenant.",
     build:
-      "É o projeto onde aprofundo backend, modelagem e arquitetura. A base está definida — isolamento por igreja, políticas de acesso no próprio banco e uma camada de dados tipada. O domínio inteiro já está modelado; a implementação avança módulo a módulo.",
+      "É o projeto onde aprofundo backend, modelagem e arquitetura. Construí a plataforma completa: isolamento por igreja, políticas de acesso no próprio banco e uma camada de dados tipada. Todos os módulos do domínio estão implementados e o sistema já está em comercialização.",
     modules: [
-      { label: "Autenticação", done: true },
-      { label: "Usuários", done: true },
-      { label: "Funções", done: true },
-      { label: "Cultos", done: false },
-      { label: "Escalas", done: false },
-      { label: "Financeiro", done: false },
+      "Autenticação",
+      "Usuários",
+      "Funções",
+      "Cultos",
+      "Escalas",
+      "Financeiro",
     ],
     tech: [
       "Next.js",
