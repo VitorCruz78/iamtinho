@@ -3,7 +3,11 @@ import { heroIntro, profile } from "@/content/site";
 
 export function Hero() {
   return (
-    <section id="top" aria-labelledby="hero-title">
+    <section
+      id="top"
+      aria-labelledby="hero-title"
+      className="flex min-h-[calc(100svh-var(--header-height))] items-center border-b border-line"
+    >
       <div className="mx-auto w-full max-w-5xl px-6 py-20 md:px-8 md:py-28">
         <h1
           id="hero-title"

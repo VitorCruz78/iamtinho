@@ -7,7 +7,7 @@ export function ContactCta() {
     <section
       id="contato"
       aria-labelledby="contato-title"
-      className="border-t border-line"
+      className="flex min-h-[calc(100svh-var(--header-height))] items-center"
     >
       <div className="mx-auto w-full max-w-5xl px-6 py-20 md:px-8 md:py-28">
         <h2

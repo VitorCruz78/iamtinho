@@ -13,7 +13,7 @@ export function Section({ id, kicker, title, intro, children }: SectionProps) {
     <section
       id={id}
       aria-labelledby={`${id}-title`}
-      className="border-t border-line"
+      className="flex min-h-[calc(100svh-var(--header-height))] items-center border-b border-line"
     >
       <div className="mx-auto w-full max-w-5xl px-6 py-20 md:px-8 md:py-28">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,14rem)_minmax(0,1fr)] lg:gap-16">

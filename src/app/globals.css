@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 :root {
+  --header-height: calc(4rem + 1px);
   --background: #fbfbfa;
   --surface: #ffffff;
   --foreground: #0f1012;
@@ -57,7 +58,7 @@
   }
 
   [id] {
-    scroll-margin-top: 6rem;
+    scroll-margin-top: var(--header-height);
   }
 }
 

@@ -22,8 +22,8 @@ export function experienceLabel(now = new Date()) {
 
 export function heroIntro() {
   return [
-    `Desenvolvedor Full Stack há ${experienceLabel()}, construindo aplicações web modernas, APIs e produtos que rodam em produção.`,
-    "Trabalho o sistema inteiro — da interface à modelagem de dados — com TypeScript, React, Next.js, Node.js e PostgreSQL.",
+    `Desenvolvedor Full Stack. Trabalho com isso há ${experienceLabel()}, a maior parte deles em produtos que estão em produção.`,
+    "Cuido do sistema inteiro, da tela ao banco. TypeScript, React, Next.js, Node.js e PostgreSQL no dia a dia.",
   ];
 }
 
@@ -36,9 +36,9 @@ export const navLinks = [
 
 export function about() {
   return [
-    `Trabalho há ${experienceLabel()} construindo aplicações web full stack e colocando produtos em produção — do frontend à camada de dados.`,
-    "Atuo tanto na interface quanto no backend, mas o que orienta meu trabalho é entender o sistema inteiro: como o dado é modelado, onde as regras de negócio ficam e o que acontece com a aplicação depois que ela vai ao ar.",
-    "Meu foco hoje está em TypeScript, React, Next.js, Node.js e PostgreSQL, com atenção crescente a arquitetura e boas práticas de engenharia.",
+    "Comecei em 2023. Desde então trabalho em aplicações web full stack, quase sempre acompanhando o produto depois que ele vai ao ar.",
+    "Faço interface e backend, mas trabalho olhando o sistema como um todo: modelagem de dados, onde ficam as regras de negócio e como a aplicação se comporta em uso real.",
+    "Hoje o foco é TypeScript, React, Next.js, Node.js e PostgreSQL. Arquitetura e boas práticas de engenharia vêm ganhando espaço no que estudo.",
   ];
 }
 
