@@ -10,7 +10,7 @@ export const profile = {
   siteUrl: "https://iamtinho.dev",
 } as const;
 
-const careerStart = new Date(2023, 1);
+const careerStart = new Date(2022, 1);
 
 export function experienceLabel(now = new Date()) {
   const months =
@@ -36,7 +36,7 @@ export const navLinks = [
 
 export function about() {
   return [
-    "Comecei em 2023. Desde então trabalho em aplicações web full stack, quase sempre acompanhando o produto depois que ele vai ao ar.",
+    `Comecei em ${careerStart.getFullYear()}. Desde então trabalho em aplicações web full stack, quase sempre acompanhando o produto depois que ele vai ao ar.`,
     "Faço interface e backend, mas trabalho olhando o sistema como um todo: modelagem de dados, onde ficam as regras de negócio e como a aplicação se comporta em uso real.",
     "Hoje o foco é TypeScript, React, Next.js, Node.js e PostgreSQL. Arquitetura e boas práticas de engenharia vêm ganhando espaço no que estudo.",
   ];
