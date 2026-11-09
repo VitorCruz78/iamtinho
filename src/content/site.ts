@@ -103,6 +103,15 @@ export const engineeringTopics = [
   "Escalabilidade",
 ] as const;
 
+export type ProjectImage = {
+  src: string;
+  // Versão para o tema escuro, trocada via prefers-color-scheme.
+  darkSrc?: string;
+  alt: string;
+  width: number;
+  height: number;
+};
+
 export type Project = {
   name: string;
   status: string;
@@ -112,16 +121,84 @@ export type Project = {
   tech: readonly string[];
   modules?: readonly string[];
   links: readonly { href: string; label: string; kind: "site" | "whatsapp" }[];
-  images?: readonly {
-    src: string;
-    alt: string;
-    width: number;
-    height: number;
-    variant: "desktop" | "mobile";
-  }[];
+  media: {
+    main:
+      | { kind: "video"; src: string; poster: string }
+      | ({ kind: "image" } & ProjectImage);
+    phone: ProjectImage;
+    gallery?: readonly ProjectImage[];
+  };
 };
 
 export const projects: readonly Project[] = [
+  {
+    name: "IDE APP",
+    status: "Em comercialização",
+    summary:
+      "Sistema de gestão para igrejas: cultos, escalas, secretaria e financeiro.",
+    problem:
+      "Em muita igreja a escala fica no grupo de mensagem, o cadastro de membros numa planilha e o caixa num caderno. O IDE APP junta tudo isso num sistema só. A liderança monta a escala de cada culto e o voluntário confirma ou recusa pelo celular.",
+    build:
+      "Construí o produto inteiro, da modelagem à cobrança. Cada igreja fica isolada por políticas de acesso no próprio banco, com camada de dados tipada e permissões por módulo. O MVP está completo e o sistema já está em comercialização, com assinatura e 14 dias de teste grátis.",
+    modules: [
+      "Cultos e escalas",
+      "Confirmação pelo celular",
+      "Secretaria",
+      "Cadastro por link",
+      "Financeiro",
+      "Permissões por módulo",
+      "Assinatura",
+      "Instalável no celular",
+    ],
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Prisma",
+      "PostgreSQL",
+      "Supabase",
+      "Stripe",
+      "Zod",
+      "Vitest",
+    ],
+    links: [
+      {
+        href: "https://ide-app.org",
+        label: "ide-app.org",
+        kind: "site",
+      },
+    ],
+    media: {
+      main: {
+        kind: "video",
+        src: "/projects/ide-app/ide-app.mp4",
+        poster: "/projects/ide-app/ide-app-poster.webp",
+      },
+      phone: {
+        src: "/projects/ide-app/minhas-escalas-claro.webp",
+        darkSrc: "/projects/ide-app/minhas-escalas-escuro.webp",
+        alt: "Tela Minhas escalas do IDE APP no celular, com escalas pendentes e os botões Confirmar e Recusar",
+        width: 780,
+        height: 1688,
+      },
+      gallery: [
+        {
+          src: "/projects/ide-app/cultos-claro.webp",
+          darkSrc: "/projects/ide-app/cultos-escuro.webp",
+          alt: "Lista de cultos do IDE APP com data, sede, observações e quantidade de escalados",
+          width: 2880,
+          height: 1200,
+        },
+        {
+          src: "/projects/ide-app/financeiro-claro.webp",
+          darkSrc: "/projects/ide-app/financeiro-escuro.webp",
+          alt: "Painel financeiro do IDE APP com entradas, saídas, saldo do período e gráficos por categoria",
+          width: 2880,
+          height: 1200,
+        },
+      ],
+    },
+  },
   {
     name: "KompreAki",
     status: "Em produção",
@@ -154,50 +231,21 @@ export const projects: readonly Project[] = [
         kind: "whatsapp",
       },
     ],
-    images: [
-      {
+    media: {
+      main: {
+        kind: "image",
         src: "/projects/kompreaki-desktop.webp",
         alt: "Página inicial do KompreAki em desktop, com destaque de artigo, categorias e coluna lateral de ofertas em alta",
         width: 1440,
         height: 810,
-        variant: "desktop",
       },
-      {
+      phone: {
         src: "/projects/kompreaki-mobile.webp",
         alt: "Página inicial do KompreAki em tela de celular",
         width: 600,
         height: 1299,
-        variant: "mobile",
       },
-    ],
-  },
-  {
-    name: "IDE APP",
-    status: "Em comercialização",
-    summary: "Sistema de gestão e operação para igrejas.",
-    problem:
-      "A operação de uma igreja costuma viver espalhada: membros em planilhas, escalas em grupos de mensagem e financeiro em outro lugar. O IDE APP trata membro, função, culto, escala e contribuição como conceitos de domínio com regras próprias, em uma estrutura multi-tenant.",
-    build:
-      "É o projeto onde aprofundo backend, modelagem e arquitetura. Construí a plataforma completa: isolamento por igreja, políticas de acesso no próprio banco e uma camada de dados tipada. Todos os módulos do domínio estão implementados e o sistema já está em comercialização.",
-    modules: [
-      "Autenticação",
-      "Usuários",
-      "Funções",
-      "Cultos",
-      "Escalas",
-      "Financeiro",
-    ],
-    tech: [
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "Prisma",
-      "PostgreSQL",
-      "Supabase",
-      "Zod",
-      "Vitest",
-    ],
-    links: [],
+    },
   },
 ];
 

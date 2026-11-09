@@ -5,10 +5,19 @@ type SectionProps = {
   kicker: string;
   title: string;
   intro?: string;
+  // Renderiza o conteúdo abaixo do cabeçalho, na largura toda do container.
+  wide?: boolean;
   children: ReactNode;
 };
 
-export function Section({ id, kicker, title, intro, children }: SectionProps) {
+export function Section({
+  id,
+  kicker,
+  title,
+  intro,
+  wide,
+  children,
+}: SectionProps) {
   return (
     <section
       id={id}
@@ -32,9 +41,10 @@ export function Section({ id, kicker, title, intro, children }: SectionProps) {
             {intro ? (
               <p className="mb-8 max-w-2xl text-base text-muted">{intro}</p>
             ) : null}
-            {children}
+            {wide ? null : children}
           </div>
         </div>
+        {wide ? <div className="mt-12 md:mt-16">{children}</div> : null}
       </div>
     </section>
   );
